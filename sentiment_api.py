@@ -11,4 +11,3 @@ def root():
 @app.get("/predict/")
 def predict():
     return classifier("I hate machine learning engineering!")
-    
