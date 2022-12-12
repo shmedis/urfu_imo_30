@@ -16,13 +16,7 @@ def load_tokenizer():
     tokenizer = MBartTokenizer.from_pretrained(model_name)
     return tokenizer
 
-model = load_model()
-tokenizer = load_tokenizer()
-
-text = st.text_area("Введите текст")
-result = st.button("Агрегировать текст")
-
-if result:
+def aggregate(text):
     input_ids = tokenizer(
         [text],
         max_length=600,
@@ -35,6 +29,16 @@ if result:
         input_ids=input_ids,
         no_repeat_ngram_size=4
     )[0]
-
+    
     summary = tokenizer.decode(output_ids, skip_special_tokens=True)
-    st.write(summary)
+    return summary
+    
+
+model = load_model()
+tokenizer = load_tokenizer()
+
+text = st.text_area("Введите текст")
+result = st.button("Агрегировать текст")
+
+if result:
+    st.write(aggregate(text))

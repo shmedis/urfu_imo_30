@@ -2,7 +2,7 @@
 
 Сервис позволяет получить краткое содержание текста. Для ээтого нужно вставить любой фрагмент текста в поле и нажать на кнопку 'Агрегировать текст'
 
-[Модель](https://github.com/shmedis/urfu_imo_30/blob/main/agregation.py)
+[Модель](https://github.com/shmedis/urfu_imo_30/blob/main/aggregation.py)
 
 
 ## Участники команды:
