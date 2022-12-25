@@ -1,17 +1,17 @@
-import streamlit as st
 from transformers import MBartTokenizer, MBartForConditionalGeneration
+from functools import lru_cache
 
-st.title('Сервис сокращения текста')
+
 model_name = "IlyaGusev/mbart_ru_sum_gazeta"
 
-# Загружаем модель в кэш
-@st.cache(allow_output_mutation=True)
+# Загружаем модель
+@lru_cache(maxsize=None)
 def load_model():
     model = MBartForConditionalGeneration.from_pretrained(model_name)
     return model
 
-# Загружаем токенизер в кэш
-@st.cache(allow_output_mutation=True)
+# Загружаем токенизер
+@lru_cache(maxsize=None)
 def load_tokenizer():
     tokenizer = MBartTokenizer.from_pretrained(model_name)
     return tokenizer
@@ -36,9 +36,3 @@ def aggregate(text):
 
 model = load_model()
 tokenizer = load_tokenizer()
-
-text = st.text_area("Введите текст")
-result = st.button("Агрегировать текст")
-
-if result:
-    st.write(aggregate(text))
