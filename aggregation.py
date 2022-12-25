@@ -2,7 +2,7 @@ from transformers import MBartTokenizer, MBartForConditionalGeneration
 from functools import lru_cache
 
 
-model_name = "IlyaGusev/mbart_ru_sum_gazeta"
+model_name = "IlyaGusev/rugpt3medium_sum_gazeta"
 
 # Загружаем модель
 @lru_cache(maxsize=None)
