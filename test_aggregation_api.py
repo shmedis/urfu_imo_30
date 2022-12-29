@@ -1,4 +1,4 @@
-from .aggregation_api import app
+from aggregation_api import app
 from fastapi.testclient import TestClient
 
 client = TestClient(app)
