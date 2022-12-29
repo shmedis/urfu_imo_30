@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from aggregation import aggregate
-import httpx
 
 
 class Item(BaseModel):
