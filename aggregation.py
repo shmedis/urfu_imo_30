@@ -2,7 +2,7 @@ from transformers import MBartTokenizer, MBartForConditionalGeneration
 from functools import lru_cache
 
 
-model_name = "IlyaGusev/rugpt3medium_sum_gazeta"
+model_name = "IlyaGusev/mbart_ru_sum_gazeta"
 
 # Загружаем модель
 @lru_cache(maxsize=None)
@@ -19,7 +19,7 @@ def load_tokenizer():
 def aggregate(text):
     input_ids = tokenizer(
         [text],
-        max_length=600,
+        max_length=200,
         padding="max_length",
         truncation=True,
         return_tensors="pt",
