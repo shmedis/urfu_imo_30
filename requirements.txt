@@ -5,4 +5,3 @@ fastapi
 pydantic
 SentencePiece
 httpx
-aggregation
