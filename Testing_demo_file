@@ -8,4 +8,4 @@ pipe = pipe.to("cuda")
 prompt = "a photo of an astronaut"
 image = pipe(prompt).images[0]  
     
-image.save("astronaut.png")
+image.save("astronaut.jpeg")
