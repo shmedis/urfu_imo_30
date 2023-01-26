@@ -1,0 +1,53 @@
+from transformers import pipeline
+unmasker = pipeline('fill-mask', model='albert-base-v2')
+unmasker("Hello I'm a [MASK] model.")
+[
+   {
+      "sequence":"[CLS] hello i'm a modeling model.[SEP]",
+      "score":0.05816134437918663,
+      "token":12807,
+      "token_str":"▁modeling"
+   },
+   {
+      "sequence":"[CLS] hello i'm a modelling model.[SEP]",
+      "score":0.03748830780386925,
+      "token":23089,
+      "token_str":"▁modelling"
+   },
+   {
+      "sequence":"[CLS] hello i'm a model model.[SEP]",
+      "score":0.033725276589393616,
+      "token":1061,
+      "token_str":"▁model"
+   },
+   {
+      "sequence":"[CLS] hello i'm a runway model.[SEP]",
+      "score":0.017313428223133087,
+      "token":8014,
+      "token_str":"▁runway"
+   },
+   {
+      "sequence":"[CLS] hello i'm a lingerie model.[SEP]",
+      "score":0.014405295252799988,
+      "token":29104,
+      "token_str":"▁lingerie"
+   }
+]
+
+
+
+from transformers import AlbertTokenizer, AlbertModel
+tokenizer = AlbertTokenizer.from_pretrained('albert-base-v2')
+model = AlbertModel.from_pretrained("albert-base-v2")
+text = "Replace me by any text you'd like."
+encoded_input = tokenizer(text, return_tensors='pt')
+output = model(**encoded_input)
+
+
+
+from transformers import AlbertTokenizer, TFAlbertModel
+tokenizer = AlbertTokenizer.from_pretrained('albert-base-v2'')
+model = TFAlbertModel.from_pretrained("albert-base-v2)
+text = "Replace me by any text you'd like."
+encoded_input = tokenizer(text, return_tensors='tf')
+output = model(encoded_input)
