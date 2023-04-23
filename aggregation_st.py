@@ -6,5 +6,5 @@ st.title("Сервис сокращения текста")
 input_text = st.text_area("Введите текст")
 output_text = st.button("Агрегировать текст")
 
-if result:
+if output_text:
     st.write(ag.aggregate(input_text))
