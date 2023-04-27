@@ -3,7 +3,7 @@ import aggregation as ag
 
 st.title("Сервис сокращения текста")
 
-input_text = st.text_area("Введите текст")
+input_text = st.text_area("Введите текст для сокращения")
 output_text = st.button("Агрегировать текст")
 
 if output_text:
