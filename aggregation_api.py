@@ -12,7 +12,7 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"message": "Hello, world!"}
+    return {"message": "Hello, World!"}
 
 
 @app.post("/aggr/")

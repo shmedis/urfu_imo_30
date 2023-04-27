@@ -5,14 +5,14 @@ from functools import lru_cache
 model_name = "IlyaGusev/mbart_ru_sum_gazeta"
 
 
-# Загружаем модель агрегирования
+# download model for aggregate
 @lru_cache(maxsize=None)
 def load_model():
     model = MBartForConditionalGeneration.from_pretrained(model_name)
     return model
 
 
-# Загружаем токенайзер
+# download tokenizer
 @lru_cache(maxsize=None)
 def load_tokenizer():
     tokenizer = MBartTokenizer.from_pretrained(model_name)
